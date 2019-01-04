@@ -1,5 +1,27 @@
 function [results, bms_results] = fit_models(data,models,results)
     
+    % Fit models to behavioral data. Three models are considered:
+    %   1. Rescorla-Wagner
+    %   2. Kalman Rescorla-Wagner with no volatility (q=0)
+    %   3. Kalman Rescorla-Wagner with estimated volatility (q>0)
+    %
+    % USAGE: [results, bms_results] = fit_models(data,[models],[results])
+    %
+    % INPUTS:
+    %   data - structure with the following fields:
+    %               .X  = [N x D] matrix, where X(n,d) denotes stimulus
+    %                     feature d on trial n
+    %               .pred = [N x 1] vector of outcome predictions
+    %               .r = [N x 1] vector of outcomes
+    %   models (optional) - vector specifying which models to fit (default: all models)
+    %   results (optional) - prior results structure to update
+    %
+    % OUTPUTS:
+    %   results - structure containing results (see mfit_optimize.m)
+    %   bms_results - model comparison results (see mfit_bms.m)
+    %
+    % Sam Gershman, January 2019
+    
     likfuns = {'RW' 'kalmanRW' 'kalmanRW_q'};
     
     if nargin < 2; models = 1:length(likfuns); end

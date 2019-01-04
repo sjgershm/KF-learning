@@ -14,7 +14,7 @@ function [lik,latents] = RW(param,data)
     %               .X  = [N x D] matrix, where X(n,d) denotes stimulus
     %                     feature d on trial n
     %               .pred = [N x 1] vector of outcome predictions
-    %               data.r = [N x 1] vector of outcomes
+    %               .r = [N x 1] vector of outcomes
     %
     % OUTPUTS:
     %   lik - log likelihood, assuming a Gaussian noise model
