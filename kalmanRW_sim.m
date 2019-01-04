@@ -14,7 +14,7 @@ function data = kalmanRW_sim(param,data)
     %   data - structure with the following fields:
     %               .X  = [N x D] matrix, where X(n,d) denotes stimulus
     %                     feature d on trial n
-    %               data.r = [N x 1] vector of outcomes
+    %               .r = [N x 1] vector of outcomes
     %
     % OUTPUTS:
     %   data - same as input, but with an additional field (pred) storing
